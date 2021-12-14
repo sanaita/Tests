@@ -1,0 +1,53 @@
+# Author: sunitha mundru
+# Created: 03-Jan-2020
+# L1 test for starting Clip (3 planes)
+settings:
+  name: files
+  description: "testing vop files"
+  classname: L2
+  suite: VOP
+  file: files.yaml
+calls:
+- command: VOPconnect
+  input:
+    connectionType: 'appService'
+    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:8081/ads/v1/'
+  validation:
+    - command: getconnectiontype
+      expected: 'appService'
+- command: selectcurrenttab
+  input:
+      type: "files"
+  validation:
+    - command: getfiledataobj
+      expected: true
+- command: openvopmodel
+  input:
+      type: "files"
+      text: "1011-ENG-PID-M-0001.pid"
+  validation:
+    - command: getgdsresourceuri
+      expected: "Projects('MadisonPlant')/Drawings('http!3A!2F!2Fin-pixl-gdstest.ingrnet.com!3A8091!2F1011-ENG-PID-M-0001.pid')"
+    - command: getgdsbaseuri
+      expected: "https://in-xenargo1ingrnet.com:22419/vds/"
+    - command: GetCameraPosition
+      expected:  {"CameraPosition":{"center":{"x":3212.81,"y":2269.35,"z":0.00},"clip-far":4492.16,"clip-near":4316,"perspective":56.00,"up":{"x":0.00,"y":1.00,"z":0.00}}}
+      precision: 2
+- command: MCDSelect
+  input:
+  - 2922
+  - false
+  - mcdrange:
+    - 2831.641357421875
+    - 2379.251953125
+    - 0
+    - 2996.098388671875
+    - 2482.998046875
+    - 0
+  validation:
+    - command: GetSelection
+      expected: [2922]
+      precision: 2
+  
+
+  
