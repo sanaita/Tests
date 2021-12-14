@@ -1,0 +1,57 @@
+# Author: Abhinav Awasthi
+# Created: 03-Jan-2020
+# L1 test for starting Clip (3 planes)
+settings:
+  name: workspace
+  description: "testing VOP workspaces"
+  classname: L2
+  suite: VOP
+  file: workspace.yaml
+calls:
+- command: VOPconnect
+  input:
+    connectionType: 'appService'
+    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:8081/ads/v1/'
+  validation:
+    - command: getconnectiontype
+      expected: 'appService'
+- command: selectcurrenttab
+  input:
+      type: "workspaces"
+  validation:
+    - command: getworkspacesdataobj
+      expected: true
+- command: openvopmodel
+  input:
+     type: "workspaces"
+     text: 'MyWorkspace'
+  validation:
+    - command: getgdsresourceuri
+      expected: "Plants('VOPDemoData_PL_MadisonPlant')/Queries('MyWorkspace')"
+    - command: getgdsbaseuri
+      expected: "https://in-xenargo1ingrnet.com:22419/vds/"
+    - command: GetCameraPosition
+      expected: {"CameraPosition":{"center":{"x":3021.07,"y":2374.09,"z":76.83},"clip-far":210.02,"clip-near":75.32,"perspective":56.00,"up":{"x":-0.37,"y":0.40,"z":0.84}}}
+      precision: 2
+# - command: MCDSelect
+#   input:
+#    - 9308
+#    - false
+#    - mcdrange:
+#      - 3045.991211
+#      - 2375.417969
+#      - 77.773201
+#      - 3051.591309
+#      - 2377.61792
+#      - 80.530701
+#    - undefined
+#    - ObjectIdentity:
+#       Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
+#   validation:
+#     - command: GetSelection
+#       expected: [9308]
+#       precision: 2
+#     - command: getadsproperties
+#       expected: true
+
+  
