@@ -1,0 +1,43 @@
+# Author: Abhinav Awasthi
+# Created: 03-Jan-2020
+# L1 test for starting Clip (3 planes)
+settings:
+  name: queries
+  description: "testing vop queries"
+  classname: L2
+  suite: VOP
+  file: queries.yaml
+calls:
+- command: VOPconnect
+  input:
+    connectionType: 'appService'
+    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:8081/ads/v1/'
+  validation:
+    - command: getconnectiontype
+      expected: 'appService'
+- command: selectcurrenttab
+  input:
+      type: "queries"
+  validation:
+    - command: getplantsquerieslist
+      expected: true
+- command: createworkspace
+  input: 
+      name: "test3"
+  validation:
+    - command: getworkspace
+      input:
+        name: "test3"
+      expected: true
+- command: deleteworkspace
+  input: 
+      name: "test3"
+  validation:
+    - command: getworkspace
+      input:
+        name: "test3"
+      expected: false
+  
+    
+  
+   
