@@ -11,7 +11,7 @@ calls:
 - command: VOPconnect
   input:
     connectionType: 'appService'
-    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:8081/ads/v1/'
+    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:9081/ads/v1/'
   validation:
     - command: getconnectiontype
       expected: 'appService'
@@ -33,25 +33,25 @@ calls:
     - command: GetCameraPosition
       expected: {"CameraPosition":{"center":{"x":3021.07,"y":2374.09,"z":76.83},"clip-far":210.02,"clip-near":75.32,"perspective":56.00,"up":{"x":-0.37,"y":0.40,"z":0.84}}}
       precision: 2
-# - command: MCDSelect
-#   input:
-#    - 9308
-#    - false
-#    - mcdrange:
-#      - 3045.991211
-#      - 2375.417969
-#      - 77.773201
-#      - 3051.591309
-#      - 2377.61792
-#      - 80.530701
-#    - undefined
-#    - ObjectIdentity:
-#       Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
-#   validation:
-#     - command: GetSelection
-#       expected: [9308]
-#       precision: 2
-#     - command: getadsproperties
-#       expected: true
+- command: MCDSelect
+  input:
+   - 9308
+   - false
+   - mcdrange:
+     - 3045.991211
+     - 2375.417969
+     - 77.773201
+     - 3051.591309
+     - 2377.61792
+     - 80.530701
+   - undefined
+   - ObjectIdentity:
+      Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
+  validation:
+    - command: GetSelection
+      expected: [9308]
+      precision: 2
+    - command: getadsproperties
+      expected: true
 
   
