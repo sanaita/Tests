@@ -45,13 +45,12 @@ calls:
      - 2377.61792
      - 80.530701
    - undefined
-   - ObjectIdentity:
-      Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
   validation:
-    - command: GetSelection
-      expected: [9308]
-      precision: 2
-    - command: getadsproperties
-      expected: true
-
+   - command: GetSelection
+     expected: [9308]
+     precision: 2
+   - command: getadsproperties
+     input:
+       Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
+     expected: true
   
