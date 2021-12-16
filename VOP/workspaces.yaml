@@ -11,7 +11,7 @@ calls:
 - command: VOPconnect
   input:
     connectionType: 'appService'
-    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:9081/ads/v1/'
+    serviceSourceString: 'https://in-pixl-gdstest.ingrnet.com:8081/ads/v1/'
   validation:
     - command: getconnectiontype
       expected: 'appService'
