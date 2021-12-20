@@ -1,6 +1,5 @@
-# Author: Abhinav Awasthi
-# Created: 03-Jan-2020
-# L1 test for starting Clip (3 planes)
+# Author: sunitha mundru
+# Tests Workspaces related workflows in VOP
 settings:
   name: workspace
   description: "testing VOP workspaces"
@@ -29,7 +28,7 @@ calls:
     - command: getgdsresourceuri
       expected: "Plants('VOPDemoData_PL_MadisonPlant')/Queries('MyWorkspace')"
     - command: getgdsbaseuri
-      expected: "https://in-xenargo1ingrnet.com:22419/vds/"
+      expected: "https://in-pixl-gdstest.ingrnet.com:22419/vds/"
     - command: GetCameraPosition
       expected: {"CameraPosition":{"center":{"x":3021.07,"y":2374.09,"z":76.83},"clip-far":210.02,"clip-near":75.32,"perspective":56.00,"up":{"x":-0.37,"y":0.40,"z":0.84}}}
       precision: 2
@@ -44,13 +43,11 @@ calls:
      - 3051.591309
      - 2377.61792
      - 80.530701
-   - undefined
   validation:
-   - command: GetSelection
-     expected: [9308]
-     precision: 2
-   - command: getadsproperties
-     input:
-       Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
-     expected: true
-  
+    - command: GetSelection
+      expected: [9308]
+      precision: 2
+    - command: getadsproperties
+      input:
+        Name: "{00004e2e-0000-0000-be0e-d2234d449d65}"
+      expected: true
