@@ -1,6 +1,5 @@
-# Author: Abhinav Awasthi
-# Created: 03-Jan-2020
-# L1 test for starting Clip (3 planes)
+# Author: sunitha mundru
+# Tests Queries related workflows in VOP
 settings:
   name: queries
   description: "testing vop queries"
@@ -15,10 +14,6 @@ calls:
   validation:
     - command: getconnectiontype
       expected: 'appService'
-- command: selectcurrenttab
-  input:
-      type: "queries"
-  validation:
     - command: getplantsquerieslist
       expected: true
 - command: createworkspace
