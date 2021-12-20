@@ -1,9 +1,8 @@
 # Author: sunitha mundru
-# Created: 03-Jan-2020
-# L1 test for starting Clip (3 planes)
+# Tests files related workflows in VOP
 settings:
   name: files
-  description: "testing vop files"
+  description: "testing files in vop"
   classname: L2
   suite: VOP
   file: files.yaml
@@ -29,9 +28,9 @@ calls:
     - command: getgdsresourceuri
       expected: "Projects('MadisonPlant')/Drawings('http!3A!2F!2Fin-pixl-gdstest.ingrnet.com!3A8091!2F1011-ENG-PID-M-0001.pid')"
     - command: getgdsbaseuri
-      expected: "https://in-xenargo1ingrnet.com:22419/vds/"
+      expected: "https://in-pixl-gdstest.ingrnet.com:22419/vds/"
     - command: GetCameraPosition
-      expected:  {"CameraPosition":{"center":{"x":3212.81,"y":2269.35,"z":0.00},"clip-far":4492.16,"clip-near":4316,"perspective":56.00,"up":{"x":0.00,"y":1.00,"z":0.00}}}
+      expected:  {"CameraPosition":{"center":{"x":3212.81,"y":2269.35,"z":0.00},"clip-far":6302.04,"clip-near":6054.91,"perspective":56.00,"up":{"x":0.00,"y":1.00,"z":0.00}}}
       precision: 2
 - command: MCDSelect
   input:
